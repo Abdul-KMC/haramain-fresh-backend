@@ -67,3 +67,11 @@
   "updatedAt": "2026-09-15T14:32:30.933Z",
   "__v": 0
 }
+
+
+// admin token
+{
+  "_id": "6aa976c3dc8b1b7eb65d23b4",
+  "username": "hr_fresh",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhYTk3NmMzZGM4YjFiN2ViNjVkMjNiNCIsImlhdCI6MTc4OTQ5MTIxOSwiZXhwIjoxNzkwMDk2MDE5fQ.Z68fKKLP961_j9b2Ash_wuE58SS7iMlkUrNKDNflOzU"
+}
