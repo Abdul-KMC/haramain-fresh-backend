@@ -1,0 +1,69 @@
+{
+  "name": "Mutton Ribs",
+  "category": "goat",
+  "cutType": "ribs",
+  "pricePerKg": 900,
+  "description": "Fresh male goat ribs, bone-in",
+  "images": [],
+  "inStock": true,
+  "minOrderWeight": 0.5,
+  "_id": "6aa955a9017b3bae0f8709d4",
+  "createdAt": "2026-09-15T14:26:49.146Z",
+  "updatedAt": "2026-09-15T14:26:49.146Z",
+  "__v": 0
+}
+
+{
+  "name": "Mutton Thigh",
+  "category": "goat",
+  "cutType": "thigh (raan)",
+  "pricePerKg": 950,
+  "description": "Fresh male goat thigh cut, bone-in",
+  "images": [],
+  "inStock": true,
+  "minOrderWeight": 1,
+  "_id": "6aa955ed017b3bae0f8709d5",
+  "createdAt": "2026-09-15T14:27:57.147Z",
+  "updatedAt": "2026-09-15T14:27:57.147Z",
+  "__v": 0
+}
+
+// order response details 
+{
+  "orderNumber": "HF-20260915-1982",
+  "items": [
+    {
+      "product": "6aa955a9017b3bae0f8709d4",
+      "name": "Mutton Ribs",
+      "weight": 0.5,
+      "pricePerKg": 900,
+      "subtotal": 450,
+      "cuttingPreference": "medium pieces",
+      "_id": "6aa956fe017b3bae0f8709d7"
+    },
+    {
+      "product": "6aa955ed017b3bae0f8709d5",
+      "name": "Mutton Thigh",
+      "weight": 1,
+      "pricePerKg": 950,
+      "subtotal": 950,
+      "cuttingPreference": "whole piece",
+      "_id": "6aa956fe017b3bae0f8709d8"
+    }
+  ],
+  "customer": {
+    "name": "Kaif Nasir",
+    "whatsappNumber": "9876543210",
+    "address": "123 Chaupatiya, Lucknow",
+    "pincode": "226003"
+  },
+  "deliverySlot": "6 PM - 8 PM",
+  "totalAmount": 1400,
+  "paymentMethod": "COD",
+  "paymentStatus": "pending",
+  "status": "pending",
+  "_id": "6aa956fe017b3bae0f8709d6",
+  "createdAt": "2026-09-15T14:32:30.933Z",
+  "updatedAt": "2026-09-15T14:32:30.933Z",
+  "__v": 0
+}
