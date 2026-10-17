@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import Admin from '../models/Admin.js';
 
 const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id, role: 'admin' }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 };
@@ -21,6 +21,9 @@ export const registerAdmin = async (req, res) => {
       token: generateToken(admin._id),
     });
   } catch (error) {
+    if (error.code === 11000) {
+      return res.status(409).json({ message: 'Admin already exists' });
+    }
     res.status(400).json({ message: error.message });
   }
 };
