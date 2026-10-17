@@ -20,6 +20,7 @@ const productSchema = new mongoose.Schema(
       },
     },
     stockQuantity: { type: Number, min: 0, default: 0 },
+    reservedQuantity: { type: Number, min: 0, default: 0 },
     stockUnit: { type: String, enum: ['kg', 'liter', 'piece'], default: 'kg' },
     seller: { type: mongoose.Schema.Types.ObjectId, ref: 'Seller' },
     description: { type: String, trim: true },

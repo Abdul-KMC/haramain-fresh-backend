@@ -1,5 +1,7 @@
 import Product from '../models/Product.js';
 import Seller from '../models/Seller.js';
+import SellerEarning from '../models/SellerEarning.js';
+import SellerPayout from '../models/SellerPayout.js';
 
 export const getSellers = async (req, res) => {
   try {
@@ -23,7 +25,11 @@ export const getSellerById = async (req, res) => {
     if (!seller) return res.status(404).json({ message: 'Seller not found' });
 
     const products = await Product.find({ seller: seller._id });
-    res.json({ ...seller.toObject(), products });
+    const [earnings, payouts] = await Promise.all([
+      SellerEarning.find({ seller: seller._id }).sort({ createdAt: -1 }),
+      SellerPayout.find({ seller: seller._id }).sort({ createdAt: -1 }),
+    ]);
+    res.json({ ...seller.toObject(), products, earnings, payouts, currency: 'INR' });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
@@ -39,7 +45,7 @@ export const updateSellerStatus = async (req, res) => {
     const seller = await Seller.findByIdAndUpdate(
       req.params.id,
       { status },
-      { new: true, runValidators: true }
+      { returnDocument: 'after', runValidators: true }
     ).select('-password');
     if (!seller) return res.status(404).json({ message: 'Seller not found' });
     res.json(seller);
@@ -53,7 +59,7 @@ export const removeSeller = async (req, res) => {
     const seller = await Seller.findByIdAndUpdate(
       req.params.id,
       { status: 'removed' },
-      { new: true, runValidators: true }
+      { returnDocument: 'after', runValidators: true }
     ).select('-password');
     if (!seller) return res.status(404).json({ message: 'Seller not found' });
     res.json({ message: 'Seller access removed', seller });

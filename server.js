@@ -12,6 +12,7 @@ import sellerAuthRoutes from './routes/sellerAuthRoutes.js';
 import sellerAdminRoutes from './routes/sellerAdminRoutes.js';
 import sellerProductRoutes from './routes/sellerProductRoutes.js';
 import siteSettingsRoutes from './routes/siteSettingsRoutes.js';
+import sellerFinanceRoutes from './routes/sellerFinanceRoutes.js';
 
 dotenv.config();
 connectDB();
@@ -26,6 +27,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/sellers/auth', sellerAuthRoutes);
 app.use('/api/admin/sellers', sellerAdminRoutes);
 app.use('/api/seller/products', sellerProductRoutes);
+app.use('/api/seller/finance', sellerFinanceRoutes);
 app.use('/api/site-settings', siteSettingsRoutes);
 
 app.get('/', (req, res) => res.send('Haramain Fresh API is running'));

@@ -9,6 +9,8 @@ const sellerSchema = new mongoose.Schema(
     phone: { type: String, required: true, trim: true },
     city: { type: String, required: true, trim: true },
     password: { type: String, required: true },
+    currentBalance: { type: Number, min: 0, default: 0 },
+    lifetimeEarnings: { type: Number, min: 0, default: 0 },
     status: {
       type: String,
       enum: ['pending', 'verified', 'suspended', 'removed'],
