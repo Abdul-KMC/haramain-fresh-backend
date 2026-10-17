@@ -2,9 +2,13 @@ import mongoose from 'mongoose';
 
 const orderItemSchema = new mongoose.Schema({
   product: { type: mongoose.Schema.Types.ObjectId, ref: 'Product', required: true },
+  seller: { type: mongoose.Schema.Types.ObjectId, ref: 'Seller' },
   name: { type: String, required: true }, // snapshot at order time
-  weight: { type: Number, required: true }, // kg
-  pricePerKg: { type: Number, required: true },
+  quantity: { type: Number, min: 0.01 },
+  unit: { type: String, enum: ['kg', 'liter', 'piece'] },
+  unitPrice: { type: Number, min: 0 },
+  weight: { type: Number, min: 0 }, // legacy kg field
+  pricePerKg: { type: Number, min: 0 }, // legacy kg field
   subtotal: { type: Number, required: true },
   cuttingPreference: { type: String, default: '' },
 });
